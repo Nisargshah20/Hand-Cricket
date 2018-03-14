@@ -95,8 +95,11 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
     		JOptionPane.showMessageDialog(base1, "Please Select 4 Players each ", "Players",
     		        JOptionPane.WARNING_MESSAGE);
     	}
-    	else 
-    	Single_player.c1.show(Single_player.parent, "3"); 
+    	else {
+    		//toss panel
+			final toss_su toss= new toss_su();
+			Single_player.parent.add(toss,"3");					
+    	Single_player.c1.show(Single_player.parent, "3"); }
     }
 });
 

@@ -171,26 +171,26 @@ public class Play_su2 extends JPanel{
 				    	one.setBackground(UIManager.getColor("control"));
 				    }
 				    public void mouseClicked(java.awt.event.MouseEvent evt) {
-				    	if(!(play_brain1.if_first_inning_over)){
+				    	if(!(play_brain2.if_second_inning_over)){
 				    	usershot2=Integer.parseInt(one.getActionCommand());
 				    	if(team_select.difficulty.equals("easy")){
 				    	compshot2=toss_su.randnumbers[ra.nextInt(5)];}
 				    	else
 				    	{	
-				    		if(toss_brain.userselect.equals("bat"))
+				    		if(toss_brain.compselect.equals("bat"))
 				    		compshot2=hardshots2[ra.nextInt(3)];
 				    		else
 				    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 				    	}				    	
-				    	play_brain1 pb =new play_brain1(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
 				    	try {
-							pb.main(temp);
+							pb2.main(temp);
 						} catch (InterruptedException e) {
 						
 							e.printStackTrace();
 						}
 					    	repaint();
-					    	pb=null;
+					    	pb2=null;
 				    	
 				    	}
 					    	//Disabling if inning over
@@ -223,27 +223,27 @@ public class Play_su2 extends JPanel{
 				    }
 				    public void mouseClicked(java.awt.event.MouseEvent evt) {
 				    	
-				    	if(!(play_brain1.if_first_inning_over)){
+				    	if(!(play_brain2.if_second_inning_over)){
 				    	usershot2=Integer.parseInt(two.getActionCommand());
 				    	if(team_select.difficulty.equals("easy")){
 					    	compshot2=toss_su.randnumbers[ra.nextInt(5)];}
 				    	else
 				    	{	
-				    		if(toss_brain.userselect.equals("bat"))
+				    		if(toss_brain.compselect.equals("bat"))
 				    		compshot2=hardshots2[ra.nextInt(3)];
 				    		else
 				    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
-				    	play_brain1 pb =new play_brain1(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
 				    	try {
-							pb.main(temp);
+							pb2.main(temp);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 
 				    	repaint();
-				    	pb=null;
+				    	pb2=null;
 				    	}
 				    	else{
 				    		one.setEnabled(false);
@@ -273,27 +273,27 @@ public class Play_su2 extends JPanel{
 				    	three.setBackground(UIManager.getColor("control"));
 				    }
 				    public void mouseClicked(java.awt.event.MouseEvent evt) {
-				    	if(!(play_brain1.if_first_inning_over)){
+				    	if(!(play_brain2.if_second_inning_over)){
 				    	usershot2=Integer.parseInt(three.getActionCommand());
 				    	if(team_select.difficulty.equals("easy")){
 					    	compshot2=toss_su.randnumbers[ra.nextInt(5)];}
 				    	else
 				    	{	
-				    		if(toss_brain.userselect.equals("bat"))
+				    		if(toss_brain.compselect.equals("bat"))
 				    		compshot2=hardshots2[ra.nextInt(3)];
 				    		else
 				    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
-				    	play_brain1 pb =new play_brain1(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
 				    	try {
-							pb.main(temp);
+							pb2.main(temp);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 
 				    	repaint();
-				    	pb=null;}
+				    	pb2=null;}
 				    	else{
 				    		one.setEnabled(false);
 				    		two.setEnabled(false);
@@ -322,28 +322,28 @@ public class Play_su2 extends JPanel{
 				    	four.setBackground(UIManager.getColor("control"));
 				    }
 				    public void mouseClicked(java.awt.event.MouseEvent evt) {
-				    	if(!(play_brain1.if_first_inning_over)){
+				    	if(!(play_brain2.if_second_inning_over)){
 				    	usershot2=Integer.parseInt(four.getActionCommand());
 				    	if(team_select.difficulty.equals("easy")){
 					    	compshot2=toss_su.randnumbers[ra.nextInt(5)];}
 				    	else
 				    	{	
-				    		if(toss_brain.userselect.equals("bat"))
+				    		if(toss_brain.compselect.equals("bat"))
 				    		compshot2=hardshots2[ra.nextInt(3)];
 				    		else
 				    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
 				    	
-				    	play_brain1 pb =new play_brain1(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
 				    	try {
-							pb.main(temp);
+							pb2.main(temp);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 
 				    	repaint();
-				    	pb=null;
+				    	pb2=null;
 				    	}
 				    	else{
 				    		one.setEnabled(false);
@@ -371,28 +371,27 @@ public class Play_su2 extends JPanel{
 				    	six.setBackground(UIManager.getColor("control"));
 				    }
 				    public void mouseClicked(java.awt.event.MouseEvent evt) {
-				    	if(!(play_brain1.if_first_inning_over)){
+				    	if(!(play_brain2.if_second_inning_over)){
 				    	usershot2=Integer.parseInt(six.getActionCommand());
 				    	if(team_select.difficulty.equals("easy") ){
 					    	compshot2=toss_su.randnumbers[ra.nextInt(5)];}
 					    	else
 					    	{	
-					    		if(toss_brain.userselect.equals("bat"))
+					    		if(toss_brain.compselect.equals("bat"))
 					    		compshot2=hardshots2[ra.nextInt(3)];
 					    		else
 					    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 					    	}
-				    	play_brain1 pb =new play_brain1(update_score2,update_overs2, update_runrate2,reference2);
-				    	
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
 				    	try {
-							pb.main(temp);
+							pb2.main(temp);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 
 				    	repaint();
-				    	pb=null;
+				    	pb2=null;
 				    	}
 				    	else{
 				    		one.setEnabled(false);
@@ -414,29 +413,35 @@ public class Play_su2 extends JPanel{
 				Image dimg1 = image1.getScaledInstance(Single_player.screenSize.width/10,Single_player.screenSize.height/(4),
 				        Image.SCALE_SMOOTH);
 				  g.drawImage(dimg1, (int) (Single_player.screenSize.width/(3.75)), (int) (Single_player.screenSize.height/(3.25)), null);
-				  //hsjhaiskh 
+					//Images For hand2
+				  final BufferedImage image2;
+				  if(play_brain2.check_if_wicket2){				
+					  	image2 = ImageIO.read(new File(usershot2+".jpg"));
+					  	}
+				  else{
+					  image2 = ImageIO.read(new File(compshot2+".jpg"));
+				  	} 
 				 
-				  
-				  final BufferedImage image2 = ImageIO.read(new File(compshot2+".jpg"));
+				 
 					Image dimg2 = image2.getScaledInstance(Single_player.screenSize.width/10,Single_player.screenSize.height/(4),
 					        Image.SCALE_SMOOTH);
 					  g.drawImage(dimg2, (int) (Single_player.screenSize.width/(1.52)), (int) (Single_player.screenSize.height/(3.25)), null);
 					  
-					if(play_brain1.check_if_wicket){
+					if(play_brain2.check_if_wicket2){
 						final BufferedImage image3 = ImageIO.read(new File("out.jpg"));
 						Image dimg3 = image3.getScaledInstance(Single_player.screenSize.width/6,Single_player.screenSize.height/(3),
 						        Image.SCALE_SMOOTH);
 						  g.drawImage(dimg3, (int) (Single_player.screenSize.width/(1.2)), (int) (Single_player.screenSize.height/(1.6)), null);
 						
 					}
-					if((!(play_brain1.check_if_wicket)) && (play_brain1.tempshot==4)){
+					if((!(play_brain2.check_if_wicket2)) && (play_brain2.tempshot2==4)){
 						final BufferedImage image4 = ImageIO.read(new File("four.jpeg"));
 						Image dimg4 = image4.getScaledInstance(Single_player.screenSize.width/6,Single_player.screenSize.height/(3),
 						        Image.SCALE_SMOOTH);
 						  g.drawImage(dimg4, (int) (Single_player.screenSize.width/(1.2)), (int) (Single_player.screenSize.height/(1.6)), null);
 						
 					}
-					if((!(play_brain1.check_if_wicket)) && ( play_brain1.tempshot==6)){
+					if((!(play_brain2.check_if_wicket2)) && ( play_brain2.tempshot2==6)){
 						final BufferedImage image5 = ImageIO.read(new File("six.jpg"));
 						Image dimg5 = image5.getScaledInstance(Single_player.screenSize.width/6,Single_player.screenSize.height/(3),
 						        Image.SCALE_SMOOTH);

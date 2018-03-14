@@ -77,20 +77,17 @@ public static  ImageIcon imageIcon;
 		//main panel
 				final JPanel main_su = new JPanel();
 				
-				//team select panel
-				final team_select ts = new team_select();
 				
-				//toss panel
-				final toss_su toss= new toss_su();
-
+				
+				
 				
 
 				//Card Layout 
 				
 				parent.setLayout(c1);
 				parent.add(main_su,"1");
-				parent.add(ts,"2");
-				parent.add(toss,"3");
+				
+				
 				
 
 				
@@ -151,6 +148,9 @@ public static  ImageIcon imageIcon;
 	    		        JOptionPane.WARNING_MESSAGE);
 	    	
 	    	else */
+	    	//team select panel
+			final team_select ts = new team_select();
+			parent.add(ts,"2");
 	     	c1.show(parent,"2"); 
 	    }
 	});

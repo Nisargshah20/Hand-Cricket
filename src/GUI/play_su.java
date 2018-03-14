@@ -34,7 +34,7 @@ public class play_su extends JPanel{
 	});
 		
 	}
-	
+	public static String ComOne[]={"Sweeps it to long leg \n for a single","Pushed through covers \n for a single","One run, Came down the track and \n driven down to sweeper cover","One run, Slaps it through cover point"};
 	public static Font fsc=new Font("Comic Sans MS",Font.BOLD,100);
 	public static  JLabel play_base;
 	public static JLabel update_score;
@@ -412,18 +412,27 @@ public class play_su extends JPanel{
 		  if(!(usershot==0))
 		  {
 			  try {
-				final BufferedImage image1 = ImageIO.read(new File(usershot+".jpg"));
-				Image dimg1 = image1.getScaledInstance(Single_player.screenSize.width/10,Single_player.screenSize.height/(4),
-				        Image.SCALE_SMOOTH);
-				  g.drawImage(dimg1, (int) (Single_player.screenSize.width/(3.75)), (int) (Single_player.screenSize.height/(3.25)), null);
-				  //hsjhaiskh 
-				 
+				  //Images For hand1
 				  
-				  final BufferedImage image2 = ImageIO.read(new File(compshot+".jpg"));
+				
+				  final BufferedImage image1 = ImageIO.read(new File(usershot+".jpg"));
+				  	Image dimg1 = image1.getScaledInstance(Single_player.screenSize.width/10,Single_player.screenSize.height/(4),
+				        Image.SCALE_SMOOTH);
+				  		g.drawImage(dimg1, (int) (Single_player.screenSize.width/(3.75)), (int) (Single_player.screenSize.height/(3.25)), null);
+				   
+				  	//Images For hand2
+				  final BufferedImage image2;
+				  if(play_brain1.check_if_wicket){				
+					  	image2 = ImageIO.read(new File(usershot+".jpg"));
+					  	}
+				  else{
+					  image2 = ImageIO.read(new File(compshot+".jpg"));
+				  	}
 					Image dimg2 = image2.getScaledInstance(Single_player.screenSize.width/10,Single_player.screenSize.height/(4),
 					        Image.SCALE_SMOOTH);
 					  g.drawImage(dimg2, (int) (Single_player.screenSize.width/(1.52)), (int) (Single_player.screenSize.height/(3.25)), null);
 					  
+					  //Image for umpire wicket
 					if(play_brain1.check_if_wicket){
 						final BufferedImage image3 = ImageIO.read(new File("out.jpg"));
 						Image dimg3 = image3.getScaledInstance(Single_player.screenSize.width/6,Single_player.screenSize.height/(3),
@@ -431,6 +440,8 @@ public class play_su extends JPanel{
 						  g.drawImage(dimg3, (int) (Single_player.screenSize.width/(1.2)), (int) (Single_player.screenSize.height/(1.6)), null);
 						
 					}
+					
+					//Image for umpire four
 					if((!(play_brain1.check_if_wicket)) && (play_brain1.tempshot==4)){
 						final BufferedImage image3 = ImageIO.read(new File("four.jpeg"));
 						Image dimg3 = image3.getScaledInstance(Single_player.screenSize.width/6,Single_player.screenSize.height/(3),
@@ -438,6 +449,7 @@ public class play_su extends JPanel{
 						  g.drawImage(dimg3, (int) (Single_player.screenSize.width/(1.2)), (int) (Single_player.screenSize.height/(1.6)), null);
 						
 					}
+					//Image for umpire six
 					if((!(play_brain1.check_if_wicket)) && ( play_brain1.tempshot==6)){
 						final BufferedImage image3 = ImageIO.read(new File("six.jpg"));
 						Image dimg3 = image3.getScaledInstance(Single_player.screenSize.width/6,Single_player.screenSize.height/(3),
