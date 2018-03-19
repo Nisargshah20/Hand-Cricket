@@ -190,8 +190,8 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
 	}
 	
 	//SQUAD FROM DB
-	public static String mysquad[]={"a","b","c","d","e"};
-	public static String oppsquad[]={"a","b","c","d","ee"};
+	public static String mysquad[]={"Kohli","Dhoni","Hardik","Bhuvi","Bumrah"};
+	public static String oppsquad[]={"Watson","Smith","Haddin","Starc","Couter-nile"};
 
 	public static int mysel;
 	public static int oppsel;

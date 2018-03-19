@@ -34,16 +34,42 @@ public class play_su extends JPanel{
 	});
 		
 	}
-	public static String ComOne[]={"Sweeps it to long leg \n for a single","Pushed through covers \n for a single","One run, Came down the track and \n driven down to sweeper cover","One run, Slaps it through cover point"};
+	public static String ComOne[]={"<html>Sweeps it to long <br>leg for a single</html>","<html>Pushed through covers <br> for a single</html>","<html>One run, Came down the track and <br> driven down to sweeper cover</html>","<html>One run,<br> Slaps it through cover point</html>"};
+	public static String ComWic[]={"<html>Bowled! <br>Misses a clean Yorker!</html>",
+									"<html>LBW!<br>Missed the ball, and <br>hits him on the pads</html>",
+									"<html>Stumped!<br>Clever work from<br>Wicket-Keeper</html>",
+									"<html>Caught!<br>Can't clear the fielder there!</html>"};
+	public static String ComTwo[]={"<html>Two runs,<br>Short ball,punched through<br>extra-cover</html>",
+									"<html>Two runs,<br>works it to<br>short fine leg</html>",
+									"<html>Two runs,<br>slashed into the gap <br>at deep Extra-cover</html>",
+									"<html>Two runs,<br>gets a thick edge<br>that flies slip fielder</html>"};
+	public static String ComFour[]={"<html>Four Runs,cuts it away<br>over backwardpoint</html>",
+									"<html>Four Runs,short ball<br>pulls it off backfoot</html>",
+									"<html>Four Runs,full & wide<br>driven through covers for <br> a boundary</html>",
+									"<html>Four Runs,oh the power!<br>Brute</html>"};
+	public static String ComThree[]={"<html>Three runs,<br>misfield from fielder there</html>",
+									"<html>Three runs,<br>overthrows! and<br>batsman reacted quockly!</html>",
+									"<html>Three runs,<br>almost squeezing out <br>a boundary</html>",
+									"<html>Three runs,<br>good running <br>between wickets!</html>"};
+	public static String ComSix[]={"<html>Six Runs,<br>that's a <br>MONSTER hit!</html>",
+									"<html>Six Runs,<br>drags it down half way<br>snatches the over</html>",
+									"<html>Six Runs,<br>lofts it over extra-cover<br>on the ropes</html>",
+									"<html>Six Runs,<br>hook over fine leg</html>"};
 	public static Font fsc=new Font("Comic Sans MS",Font.BOLD,100);
 	public static  JLabel play_base;
 	public static JLabel update_score;
 	public static JLabel update_runrate;
 	public static JLabel update_overs;
+	public static JLabel update_comments;
+	public static JLabel update_strikes;
 	public static int[] hardshots={1,2,3};
+	public static String[][] playerscores1=new String[4][2];
+	public static String[][] playerscores2=new String[4][2];
+	public static String[] myteam= (String[]) team_select.mysquadsel.toArray(new String[0]);
+	public static String[] oppteam=(String[]) team_select.oppsquadsel.toArray(new String[0]);
 	String temp[] = null;
 	public static  JButton viewscore1;
-	public play_su(){
+		public play_su(){
 		//Button for viewscorecard
 		viewscore1=new JButton("View Scorecard>>>");	
 		viewscore1.setBounds((int) (Single_player.screenSize.width/(1.275)), (int) (Single_player.screenSize.height/(2.5)), Single_player.screenSize.width/4, Single_player.screenSize.height/15);
@@ -65,6 +91,16 @@ public class play_su extends JPanel{
 		    }
 		});
 		
+		//Intializing MultiDimensional Array for scorecard
+		
+		for(int x=0;x<4;x++){
+			playerscores1[x][0]=myteam[x];
+			playerscores1[x][1]="0";
+			playerscores2[x][0]=oppteam[x];
+			playerscores2[x][1]="0";
+		}
+		
+		
 		
 		//System.out.print(team_select.mysquadsel);
 		play_base = new JLabel();
@@ -73,6 +109,9 @@ public class play_su extends JPanel{
 		play_base.setIcon(Single_player.imageIcon);
 		this.add(play_base);
 		reference=play_base;
+		
+		
+		
 		
 		//Team Display
 		
@@ -147,6 +186,25 @@ public class play_su extends JPanel{
 				runrate.setBorder(border);
 				play_base.add(runrate);
 				
+				
+				//Label For Strikes
+				JLabel strikes=new JLabel("");
+				strikes.setFont(Single_player.fstrike);
+				strikes.setForeground(Color.YELLOW);
+				strikes.setBounds((int) (Single_player.screenSize.width/(80)), (int) (Single_player.screenSize.height/(11)),(int) (Single_player.screenSize.width), (int) (Single_player.screenSize.height/(2)));
+				update_strikes=strikes;
+				play_base.add(strikes);
+				
+				
+				
+				//Label For Comments
+				JLabel comm=new JLabel("");
+				comm.setFont(toss_su.finp);
+				comm.setForeground(Color.WHITE);
+				comm.setBounds((int) (Single_player.screenSize.width/(100)), (int) (Single_player.screenSize.height/(2.45)),(int) (Single_player.screenSize.width), (int) (Single_player.screenSize.height/(2)));
+				update_comments=comm;
+				play_base.add(comm);
+				
 		//Playing buttons
 				
 				//Buttons defiinition
@@ -184,7 +242,7 @@ public class play_su extends JPanel{
 				    		else
 				    			compshot=toss_su.randnumbers[ra.nextInt(5)];
 				    	}				    	
-				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference);
+				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference,update_comments,update_strikes);
 				    	try {
 							pb.main(temp);
 						} catch (InterruptedException e) {
@@ -236,7 +294,7 @@ public class play_su extends JPanel{
 				    		else
 				    			compshot=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
-				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference);
+				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference,update_comments,update_strikes);
 				    	try {
 							pb.main(temp);
 						} catch (InterruptedException e) {
@@ -286,7 +344,7 @@ public class play_su extends JPanel{
 				    		else
 				    			compshot=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
-				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference);
+				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference,update_comments,update_strikes);
 				    	try {
 							pb.main(temp);
 						} catch (InterruptedException e) {
@@ -336,7 +394,7 @@ public class play_su extends JPanel{
 				    			compshot=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
 				    	
-				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference);
+				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference,update_comments,update_strikes);
 				    	try {
 							pb.main(temp);
 						} catch (InterruptedException e) {
@@ -384,7 +442,7 @@ public class play_su extends JPanel{
 					    		else
 					    			compshot=toss_su.randnumbers[ra.nextInt(5)];
 					    	}
-				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference);
+				    	play_brain1 pb =new play_brain1(update_score,update_overs, update_runrate,reference,update_comments,update_strikes);
 				    	
 				    	try {
 							pb.main(temp);

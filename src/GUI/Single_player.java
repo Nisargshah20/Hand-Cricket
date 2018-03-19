@@ -33,6 +33,7 @@ public static  ImageIcon imageIcon;
 	final static CardLayout c1=new CardLayout();
 	final static JPanel parent = new JPanel();
 	static Font fvs=new Font("Comic Sans MS",Font.BOLD,150);
+	static Font fstrike=new Font("Comic Sans MS",Font.BOLD,100);	
 	static Font fhead=new Font("Georgia",Font.BOLD,105);
 	static Font fmotto=new Font("Comic Sans MS",Font.BOLD,54);
 	static Font fbutton=new Font("Comic Sans MS",Font.BOLD,84);

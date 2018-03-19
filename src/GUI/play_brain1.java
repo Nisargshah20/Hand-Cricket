@@ -1,6 +1,7 @@
 package GUI;
 import java.awt.*;
 import java.text.DecimalFormat;
+import java.util.Random;
 
 import javax.swing.JLabel;
 public class play_brain1 {
@@ -25,6 +26,8 @@ public class play_brain1 {
 	public static int list_pointer=1;
 	public static int[] player_scores=new int[4];
 	public static int player_score__pointer;
+	public static String[] myteam= (String[]) team_select.mysquadsel.toArray(new String[0]);
+	public static String[] oppteam=(String[]) team_select.oppsquadsel.toArray(new String[0]);
 	
 	
 	public static JLabel comments;
@@ -32,30 +35,41 @@ public class play_brain1 {
 	public static JLabel update_overs;
 	public static JLabel update_runrate;
 	public static JLabel reference;
+	public static JLabel update_comments;
+	public static JLabel update_strikes;
+	static Random ra=new Random();
 	
 	static Thread t1;
-	public play_brain1(JLabel update_score,JLabel update_overs,JLabel update_runrate,JLabel reference){
+	public play_brain1(JLabel update_score,JLabel update_overs,JLabel update_runrate,JLabel reference,JLabel update_comments,JLabel update_strikes){
 		play_brain1.update_overs=update_overs;
 		play_brain1.update_score=update_score;
 		play_brain1.update_runrate=update_runrate;
 		play_brain1.reference=reference;
+		play_brain1.update_comments=update_comments;
+		play_brain1.update_strikes=update_strikes;
+		play_brain1.check_if_wicket=false;
+		play_brain1.check_if_factor=false;
+		play_brain1.check_if_strike_change=false;
+	//	System.out.println(myteam[0]);
+	//	System.out.println(myteam[3]);
 		}
 	public static void set_players(){
 		if(toss_brain.userselect.equals("bat")){
-			bat1=(String) team_select.mysquadsel.get(list_pointer);
-			bat2=(String) team_select.mysquadsel.get((list_pointer+1));
+			bat1=myteam[0];
+			bat2=myteam[1];
 			Striker=bat1;
 			NonStriker=bat2;
-			System.out.println(bat1);
-			System.out.println(bat2);
+		//	System.out.println(bat1);
+			//System.out.println(bat2);
 			}
 			else{
-				bat1=(String) team_select.oppsquadsel.get(list_pointer);
-				bat2=(String) team_select.oppsquadsel.get((list_pointer+1));
+				bat1=oppteam[0];
+				bat2=oppteam[1];
 				Striker=bat1;
 				NonStriker=bat2;
-				System.out.println(bat1);
-				System.out.println(bat2);}
+				//System.out.println(bat1);
+			//	System.out.println(bat2);
+				}
 	}
 	//Method to set if wicket has fallen or strike is changed
 	public static void set_checks(){
@@ -89,36 +103,45 @@ public class play_brain1 {
 			if(check_if_factor){
 				
 				check_if_wicket=true;
-				//if(wicket_1<3)
-				//list_pointer++;
+				int temp_wickets=0;
+				
+				if(wicket_1==2){
+						 temp_wickets=3;
+					}
 				
 				//Check Striker while wicket fell
+			if(temp_wickets!=3)
+			{
 				if(Striker.equals(bat1))
 					{
 						if(toss_brain.userselect.equals("bat")){
-							Striker=(String) team_select.mysquadsel.get(list_pointer);
-					
+							Striker=myteam[++list_pointer];
 							}
-					else{
-						Striker=(String) team_select.oppsquadsel.get(list_pointer);
-				}
+						else{
+						Striker=oppteam[++list_pointer];
+							}
 					bat1=Striker;
-					System.out.println(Striker);
-					System.out.println(NonStriker);
-					System.out.println(wicket_1);
-				}
+					
+				//	System.out.println(Striker);
+					//System.out.println(NonStriker);
+					//System.out.println(wicket_1);
+					}
 				//Else of Striker
 				else{
 					if(toss_brain.userselect.equals("bat")){
-						Striker=(String) team_select.mysquadsel.get(list_pointer);
-						}
+						Striker=myteam[++list_pointer];}
 					else{
-						Striker=(String) team_select.oppsquadsel.get(list_pointer);
+					Striker=oppteam[++list_pointer];
 						}
 				bat2=Striker;
-				System.out.println(Striker);
-				System.out.println(NonStriker);
-				}
+				//System.out.println(Striker);
+				//System.out.println(NonStriker);
+					}
+					if(over_ball_1!=5)	
+					check_if_strike_change=false;
+					else
+						check_if_strike_change=true;
+			}
 			}
 			else{
 				check_if_wicket=false;
@@ -127,10 +150,10 @@ public class play_brain1 {
 				if(toss_brain.userselect.equals("bat")){
 					if(play_su.usershot%2!=0 && over_ball_1!=5){
 						check_if_strike_change=true;
-					}
-					else if(play_su.compshot%2==0 && over_ball_1==5){
+						}
+					else if(play_su.usershot%2==0 && over_ball_1==5){
 						check_if_strike_change=true;
-					}
+						}
 					else
 						check_if_strike_change=false;
 				}
@@ -145,9 +168,10 @@ public class play_brain1 {
 					else
 						check_if_strike_change=false;
 				}
-			
 			}
-
+			
+		
+			
 	}
 
 public static void update_scoreboard(){
@@ -191,17 +215,52 @@ public static void update_scoreboard(){
 		DecimalFormat df=new DecimalFormat("#0.0");
 		update_runrate.setText("<html>Run<br>Rate:<br>"+df.format(runrate_1)+"</html>");
 		}
-public static void make_comments(){
+	//Making Comments
+
+	public static void make_comments(){
+		int commentint=ra.nextInt(4);
+		 if(check_if_wicket){
+			update_comments.setText(play_su.ComWic[commentint]);
+		}
+		 else if(tempshot==1){
+			update_comments.setText(play_su.ComOne[commentint]);
+		}
+		else if(tempshot==2){
+			update_comments.setText(play_su.ComTwo[commentint]);
+		}
+		else if(tempshot==3){
+			update_comments.setText(play_su.ComThree[commentint]);
+		}
+		else if(tempshot==4){
+			update_comments.setText(play_su.ComFour[commentint]);
+		}
+		else if(tempshot==6){
+			update_comments.setText(play_su.ComSix[commentint]);
+		}
+		
+		else
+			update_comments.setText("");
+		 
+		
+			 if(!check_if_strike_change){
+			// System.out.println("change nthi vala "+Player.transfer1+"  "+Player.transfer2);
+				 update_strikes.setText("<html>"+Striker+"*  "+Player.transfer1+"<br> "+NonStriker+" "+Player.transfer2+"</html>");}
+			 else{
+				 update_strikes.setText("<html>"+Striker+"*  "+Player.transfer2+"<br> "+NonStriker+" "+Player.transfer1+"</html>");
+				 // System.out.println("change vala "+Player.transfer1+"  "+Player.transfer2);	 
+			 	}
+		 
+}
 	
-	}
+	
 public static void main(String s[])throws InterruptedException{
 	if(!(if_first_inning_over)){
-		if(wicket_1==0)
+		if(wicket_1==0 && over_totalballs_1==0)
 		{
 			set_players();
 		}
 	set_checks();	
-		
+	
 	//Multi-Threadind
 	
 	final Player p1 =new Player();
@@ -209,7 +268,7 @@ public static void main(String s[])throws InterruptedException{
 	t1 = new Thread(new Runnable(){
 		public void run(){
 			try {
-				p1.update_striker();
+				p1.exchange_striker();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

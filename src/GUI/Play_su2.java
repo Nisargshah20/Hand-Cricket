@@ -39,31 +39,33 @@ public class Play_su2 extends JPanel{
 	public static JLabel update_score2;
 	public static JLabel update_runrate2;
 	public static JLabel update_overs2;
+	public static JLabel update_strikes2;
 	public static int[] hardshots2={1,2,3};
 	String temp[] = null;
 	public static  JButton viewscore2;
+	public static JLabel update_comments2;
 	public Play_su2(){
 		//Button for viewscorecard
-	/*	viewscore1=new JButton("View Scorecard>>>");	
-		viewscore1.setBounds((int) (Single_player.screenSize.width/(1.275)), (int) (Single_player.screenSize.height/(2.5)), Single_player.screenSize.width/4, Single_player.screenSize.height/15);
-		viewscore1.setBorderPainted(true);
-		viewscore1.setFont(Single_player.fbutton);
-		viewscore1.setFocusable(false);
-		viewscore1.addMouseListener(new java.awt.event.MouseAdapter() {
+		viewscore2=new JButton("View Scorecard>>>");	
+		viewscore2.setBounds((int) (Single_player.screenSize.width/(1.275)), (int) (Single_player.screenSize.height/(2.5)), Single_player.screenSize.width/4, Single_player.screenSize.height/15);
+		viewscore2.setBorderPainted(true);
+		viewscore2.setFont(Single_player.fbutton);
+		viewscore2.setFocusable(false);
+		viewscore2.addMouseListener(new java.awt.event.MouseAdapter() {
 			 public void mouseEntered(java.awt.event.MouseEvent evt) {
-				 viewscore1.setBackground(Color.GREEN);
+				 viewscore2.setBackground(Color.GREEN);
 			    	
 			    }
 			 public void mouseExited(java.awt.event.MouseEvent evt) {
-				 viewscore1.setBackground(UIManager.getColor("control"));
+				 viewscore2.setBackground(UIManager.getColor("control"));
 			    }
 		    public void mouseClicked(java.awt.event.MouseEvent evt) {
-	    		final ViewScore1 vs= new ViewScore1();
-	    		Single_player.parent.add(vs,"5");
-		    	Single_player.c1.show(Single_player.parent, "5");
+	    		final ViewScore2 vs2= new ViewScore2();
+	    		Single_player.parent.add(vs2,"7");
+		    	Single_player.c1.show(Single_player.parent, "7");
 		    }
 		});
-		*/
+		
 		
 		//System.out.print(team_select.mysquadsel);
 		play_base2 = new JLabel();
@@ -145,6 +147,23 @@ public class Play_su2 extends JPanel{
 				runrate.setBorder(border);
 				play_base2.add(runrate);
 				
+				//Label For Strikes
+				JLabel strikes2=new JLabel("");
+				strikes2.setFont(Single_player.fstrike);
+				strikes2.setForeground(Color.YELLOW);
+				strikes2.setBounds((int) (Single_player.screenSize.width/(80)), (int) (Single_player.screenSize.height/(11)),(int) (Single_player.screenSize.width), (int) (Single_player.screenSize.height/(2)));
+				update_strikes2=strikes2;
+				play_base2.add(strikes2);
+				
+				
+				//Label For Comments
+				JLabel comm=new JLabel("");
+				comm.setFont(toss_su.finp);
+				comm.setForeground(Color.WHITE);
+				comm.setBounds((int) (Single_player.screenSize.width/(100)), (int) (Single_player.screenSize.height/(2.45)),(int) (Single_player.screenSize.width), (int) (Single_player.screenSize.height/(2)));
+				update_comments2=comm;
+				play_base2.add(comm);
+				
 		//Playing buttons
 				
 				//Buttons defiinition
@@ -182,7 +201,7 @@ public class Play_su2 extends JPanel{
 				    		else
 				    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 				    	}				    	
-				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2,update_comments2,update_strikes2);
 				    	try {
 							pb2.main(temp);
 						} catch (InterruptedException e) {
@@ -234,7 +253,7 @@ public class Play_su2 extends JPanel{
 				    		else
 				    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
-				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2,update_comments2,update_strikes2);
 				    	try {
 							pb2.main(temp);
 						} catch (InterruptedException e) {
@@ -284,7 +303,7 @@ public class Play_su2 extends JPanel{
 				    		else
 				    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
-				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2,update_comments2,update_strikes2);
 				    	try {
 							pb2.main(temp);
 						} catch (InterruptedException e) {
@@ -334,7 +353,7 @@ public class Play_su2 extends JPanel{
 				    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 				    	}
 				    	
-				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2,update_comments2,update_strikes2);
 				    	try {
 							pb2.main(temp);
 						} catch (InterruptedException e) {
@@ -382,7 +401,7 @@ public class Play_su2 extends JPanel{
 					    		else
 					    			compshot2=toss_su.randnumbers[ra.nextInt(5)];
 					    	}
-				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2);
+				    	play_brain2 pb2 =new play_brain2(update_score2,update_overs2, update_runrate2,reference2,update_comments2,update_strikes2);
 				    	try {
 							pb2.main(temp);
 						} catch (InterruptedException e) {

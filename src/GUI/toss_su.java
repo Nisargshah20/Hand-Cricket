@@ -25,7 +25,7 @@ public class toss_su extends JPanel{
 	public static int randnumbers[]={6,3,1,4,2};
 	Random ra=new Random();
 	public static int compnumber;
-	static Font finp=new Font("Comic Sans MS",Font.BOLD,90);
+	public static Font finp=new Font("Comic Sans MS",Font.BOLD,90);
 	public static JLayeredPane layeredPane = new JLayeredPane();
 	JLabel temp;
 	
