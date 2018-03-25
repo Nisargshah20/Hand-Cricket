@@ -185,14 +185,85 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
 		opp_team.setBounds((int) (Single_player.screenSize.width/(1.37)), (int) (Single_player.screenSize.height/(3)), Single_player.screenSize.width/6, (int) (Single_player.screenSize.height/(20)));
 		opp_team.setBorder(border);
 		base1.add(opp_team);
+		setsquads();
 		squadList1();
 		squadList2();
+		
 	}
+	//Quads
+	public static String Ind[]={"V Kohli","MS Dhoni(w)","Hardik P","B Kumar","J Bumrah"};
+	public static String Aus[]={"S Watson","S Smith","B Haddin(w)","M Starc","N Couter-nile"};
+	public static String Sa[]={"AB de villiers","Faf du Plesis","de Kock(w)","Philander","Rabada"};
+	public static String Pak[]={"Az Ali","F Zaman","S Ahmed(w)","M Amir","H Ali"};
+	public static String Wi[]={"C Gayle","D Smith(w)","K Pollard","S Narine","C Brathwaite"};
+	public static String Eng[]={"J Root","J Bairstow(w)","B Stokes","C Woakes","S Broad"};
+	public static String Nz[]={"M Guptill","Williamson(w)","M Santner","T Southee","T Boult"};
+	public static String Sl[]={"N Dickwella(w)","K Prera","T Prera","D Shanaka","N Pradeep"};
 	
 	//SQUAD FROM DB
-	public static String mysquad[]={"Kohli","Dhoni","Hardik","Bhuvi","Bumrah"};
-	public static String oppsquad[]={"Watson","Smith","Haddin","Starc","Couter-nile"};
-
+	public static String mysquad[];
+	public static String oppsquad[];
+	
+	
+	//Set Players
+public static void setsquads(){
+	if(Single_player.myteam.equals("India")){
+	team_select.mysquad=Ind;
+	}
+	else if(Single_player.myteam.equals("Australia")){
+		team_select.mysquad=Aus;
+		}
+	else if(Single_player.myteam.equals("SouthAfrica")){
+		team_select.mysquad=Sa;
+		}
+	else if(Single_player.myteam.equals("Pakistan")){
+		team_select.mysquad=Pak;
+		}
+	else if(Single_player.myteam.equals("WestIndies")){
+		team_select.mysquad=Wi;
+		}
+	else if(Single_player.myteam.equals("England")){
+		team_select.mysquad=Eng;
+		}
+	else if(Single_player.myteam.equals("Newzealand")){
+		team_select.mysquad=Nz;
+		}
+	else if(Single_player.myteam.equals("SriLanka")){
+		team_select.mysquad=Sl;
+		}
+	else{
+		team_select.mysquad=Ind;
+	}
+	
+	if(Single_player.oppteam.equals("India")){
+		team_select.oppsquad=Ind;
+		}
+		else if(Single_player.oppteam.equals("Australia")){
+			team_select.oppsquad=Aus;
+			}
+		else if(Single_player.oppteam.equals("SouthAfrica")){
+			team_select.oppsquad=Sa;
+			}
+		else if(Single_player.oppteam.equals("Pakistan")){
+			team_select.oppsquad=Pak;
+			}
+		else if(Single_player.oppteam.equals("WestIndies")){
+			team_select.oppsquad=Wi;
+			}
+		else if(Single_player.oppteam.equals("England")){
+			team_select.oppsquad=Eng;
+			}
+		else if(Single_player.oppteam.equals("Newzealand")){
+			team_select.oppsquad=Nz;
+			}
+		else if(Single_player.oppteam.equals("SriLanka")){
+			team_select.oppsquad=Sl;
+			}
+		else{
+			team_select.oppsquad=Ind;
+		}
+}
+	
 	public static int mysel;
 	public static int oppsel;
 	
@@ -212,7 +283,7 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
 		my_list_squad.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		scroller=new JScrollPane(my_list_squad);
 		my_list_squad.setFont(Single_player.flabel);
-		my_list_squad.setBounds((int) (Single_player.screenSize.width/(2.75)), (int) (Single_player.screenSize.height/(2.43)), Single_player.screenSize.width/6, (int) (Single_player.screenSize.height/(3.2)));
+		my_list_squad.setBounds((int) (Single_player.screenSize.width/(2.75)), (int) (Single_player.screenSize.height/(2.43)), Single_player.screenSize.width/6, (int) (Single_player.screenSize.height/(3.1)));
 		my_list_squad.setBackground(Single_player.clist);
 		base1.add(my_list_squad);
 		
@@ -238,7 +309,7 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
 		opp_list_squad.setSelectionBackground(Color.LIGHT_GRAY);
 		opp_list_squad.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		opp_list_squad.setFont(Single_player.flabel);
-		opp_list_squad.setBounds((int) (Single_player.screenSize.width/(1.37)), (int) (Single_player.screenSize.height/(2.43)), Single_player.screenSize.width/6, (int) (Single_player.screenSize.height/(3.2)));
+		opp_list_squad.setBounds((int) (Single_player.screenSize.width/(1.37)), (int) (Single_player.screenSize.height/(2.43)), Single_player.screenSize.width/6, (int) (Single_player.screenSize.height/(3.1)));
 		opp_list_squad.setBackground(Single_player.clist);
 		base1.add(opp_list_squad);
 		opp_list_squad.addListSelectionListener(new ListSelectionListener(){

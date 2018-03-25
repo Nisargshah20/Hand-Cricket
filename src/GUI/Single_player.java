@@ -13,9 +13,9 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 public class Single_player{
-	public static String overs;
-	public static String myteam;
-	public static String oppteam;
+	public static String overs="";
+	public static String myteam="";
+	public static String oppteam="";
 	public static String teams_db[]={"India","Australia","SouthAfrica","Pakistan","England","WestIndies","Newzealand","SriLanka"};
 	public static JLabel base;
 	public static DefaultListModel teams=new DefaultListModel();
@@ -138,7 +138,7 @@ public static  ImageIcon imageIcon;
 	    	next_su.setBackground(UIManager.getColor("control"));
 	    }
 	    public void mouseClicked(java.awt.event.MouseEvent evt) {
-	    	/*if(myteam.equals(oppteam) || myteam.equals("") || oppteam.equals(""))
+	    	if(myteam.equals(oppteam) || myteam.equals("") || oppteam.equals(""))
 	    	{
 	    		JOptionPane.showMessageDialog(main_su, "Please Select two different teams", "Warning",
 	    		        JOptionPane.WARNING_MESSAGE);	
@@ -146,13 +146,14 @@ public static  ImageIcon imageIcon;
 	    	else if(overs.equals(""))
 	    	{
 	    		JOptionPane.showMessageDialog(main_su, "Please Select overs from format", "Overs not selected",
-	    		        JOptionPane.WARNING_MESSAGE);
+	    		        JOptionPane.WARNING_MESSAGE);}
 	    	
-	    	else */
+	    	else {
 	    	//team select panel
 			final team_select ts = new team_select();
 			parent.add(ts,"2");
-	     	c1.show(parent,"2"); 
+	     	c1.show(parent,"2");
+	    	}
 	    }
 	});
 	

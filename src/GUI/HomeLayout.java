@@ -64,7 +64,7 @@ public HomeLayout(){
 	
 	
 	//Button for single player
-	final JButton single_user=new JButton("Single Player Mode");
+	final JButton single_user=new JButton("Play");
 	single_user.setActionCommand("single_user");
 	single_user.setBounds((int) (screenSize.width/(2.5)),screenSize.height/4,(int) (screenSize.width/3), screenSize.height/10);
 	single_user.setBorderPainted(true);
@@ -89,30 +89,10 @@ public HomeLayout(){
 	    }
 	});
 	
-	//Button for multi-player
-	final JButton multi_user=new JButton("Multi-Player Player Mode");
-	multi_user.setActionCommand("multi_user");
-	multi_user.setBounds((int) (screenSize.width/(2.5)),(int) (screenSize.height/(2.5)),(int) (screenSize.width/3), screenSize.height/10);
-	multi_user.setBorderPainted(true);
-	multi_user.setFont(fbutton);
-	multi_user.setFocusable(false);
-	Homebase.add(multi_user);
-	multi_user.addMouseListener(new java.awt.event.MouseAdapter() {
-	    public void mouseEntered(java.awt.event.MouseEvent evt) {
-	        multi_user.setBackground(Color.lightGray);
-	    }
-
-	    public void mouseExited(java.awt.event.MouseEvent evt) {
-	        multi_user.setBackground(UIManager.getColor("control"));
-	    }
-	    public void mouseClicked(java.awt.event.MouseEvent evt) {
-	  	  
-	    }
-	});
 	//button for stats
-	final JButton stat=new JButton("View Statistics");
+	final JButton stat=new JButton("How to play?");
 	stat.setActionCommand("stat");
-	stat.setBounds((int) (screenSize.width/(2.5)),(int) (screenSize.height/(1.82)),(int) (screenSize.width/3), screenSize.height/10);
+	stat.setBounds((int) (screenSize.width/(2.5)),(int) (screenSize.height/(2.15)),(int) (screenSize.width/3), screenSize.height/10);
 	stat.setBorderPainted(true);
 	stat.setFont(fbutton);
 	stat.setFocusable(true);

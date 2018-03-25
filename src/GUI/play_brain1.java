@@ -81,7 +81,7 @@ public class play_brain1 {
 				if(play_su.usershot==play_su.compshot){
 					
 					check_if_factor=true;}
-				else if(play_su.usershot==6 && (play_su.compshot==2 || play_su.compshot==3))
+				else if(play_su.usershot==6 && (/*play_su.compshot==2 ||*/ play_su.compshot==3))
 					check_if_factor=true;
 				else if(play_su.usershot==4 && (play_su.compshot==2 ))
 					check_if_factor=true;

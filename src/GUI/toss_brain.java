@@ -14,8 +14,8 @@ import javax.swing.JLayeredPane;
 import javax.swing.UIManager;
 public class toss_brain {
 	
-	public static String compselect;
-	public static String userselect;
+	public static String compselect="";
+	public static String userselect="";
 
  public static void toss_handle(JLabel temp){
 	   int total=toss_su.compnumber+toss_su.usernumber;

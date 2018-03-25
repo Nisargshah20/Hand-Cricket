@@ -34,7 +34,7 @@ public class play_su extends JPanel{
 	});
 		
 	}
-	public static String ComOne[]={"<html>Sweeps it to long <br>leg for a single</html>","<html>Pushed through covers <br> for a single</html>","<html>One run, Came down the track and <br> driven down to sweeper cover</html>","<html>One run,<br> Slaps it through cover point</html>"};
+	public static String ComOne[]={"<html>Sweeps it to long <br>leg for a single</html>","<html>Pushed through covers <br> for a single</html>","<html>One run,<br> Came down the track and <br> driven down to <br> sweeper cover</html>","<html>One run,<br> Slaps it through cover point</html>"};
 	public static String ComWic[]={"<html>Bowled! <br>Misses a clean Yorker!</html>",
 									"<html>LBW!<br>Missed the ball, and <br>hits him on the pads</html>",
 									"<html>Stumped!<br>Clever work from<br>Wicket-Keeper</html>",

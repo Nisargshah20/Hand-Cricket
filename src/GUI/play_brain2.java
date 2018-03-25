@@ -77,7 +77,7 @@ public class play_brain2 {
 				if(Play_su2.usershot2==Play_su2.compshot2){
 					
 					check_if_factor2=true;}
-				else if(Play_su2.usershot2==6 && (Play_su2.compshot2==2 || Play_su2.compshot2==3))
+				else if(Play_su2.usershot2==6 && (/*Play_su2.compshot2==2 ||*/ Play_su2.compshot2==3))
 					check_if_factor2=true;
 				else if(Play_su2.usershot2==4 && (Play_su2.compshot2==2 ))
 					check_if_factor2=true;
@@ -210,13 +210,7 @@ public static void update_scoreboard2(){
 	if(over_overs_2==Integer.parseInt(Single_player.overs) || wicket_2==3 || play_brain1.team_score_1<team_score_2)
 			{
 		if_second_inning_over=true;
-		reference2.add(play_su.viewscore1);
-		for(int t=0;t<4;t++){
-		System.out.println(play_su.playerscores1[t][0]+" "+play_su.playerscores1[t][1]);
-	}
-	for(int t=0;t<4;t++){
-		System.out.println(play_su.playerscores2[t][0]+" "+play_su.playerscores2[t][1]);
-	}
+		reference2.add(Play_su2.viewscore2);
 			}
 	
 	
@@ -269,11 +263,9 @@ public static void make_comments2(){
 	
 		if(!check_if_strike_change2)
 			{
-	//	System.out.println("change nthi vala "+Player2.transfer1+"  "+Player2.transfer2);
 		 update_strikes2.setText("<html>"+Striker+"*  "+Player2.transfer1+"<br> "+NonStriker+" "+Player2.transfer2+"</html>");}
 		 else{
 			 update_strikes2.setText("<html>"+Striker+"*  "+Player2.transfer2+"<br> "+NonStriker+" "+Player2.transfer1+"</html>");
-			 //System.out.println("change vala "+Player2.transfer1+"  "+Player2.transfer2);	 	 
 		 }
 	
 }
@@ -304,10 +296,6 @@ public static void main(String s[])throws InterruptedException{
 
 	t1.join();
 
-	
-	//System.out.println("Back to main thread");
-	
-	//xyzz
 	update_scoreboard2();
 	make_comments2();
 	}

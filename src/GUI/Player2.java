@@ -10,7 +10,6 @@ public class Player2 {
 	
  public void exchange_striker() throws InterruptedException{
 		
-			//System.out.println("Entered update");
 			
 			Thread t2 = new Thread(new Runnable(){
 				public void run(){
@@ -25,7 +24,6 @@ public class Player2 {
 			t2.start();
 			t2.join();
 			
-		//	System.out.println("Leaving update");
 		
  if(play_brain2.check_if_strike_change2){
 	// System.out.println("Striker changing : ");
@@ -34,14 +32,7 @@ public class Player2 {
 			play_brain2.Striker = play_brain2.Striker.substring(play_brain2.NonStriker.length());
  		}
  
-	//System.out.println("Striker : "+play_brain2.Striker);
-	//System.out.println("Non-Striker : "+play_brain2.NonStriker);	
-	/*for(int t=0;t<4;t++){
-		System.out.println(play_su.playerscores1[t][0]+" "+play_su.playerscores1[t][1]);
-	}
-	for(int t=0;t<4;t++){
-		System.out.println(play_su.playerscores2[t][0]+" "+play_su.playerscores2[t][1]);
-	}*/
+
  }
  public void update_striker() throws InterruptedException{
 	 int strikerscore;

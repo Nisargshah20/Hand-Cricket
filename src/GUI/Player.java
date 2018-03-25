@@ -8,7 +8,6 @@ public  static String transfer2="0";
 public static int index1,index2;	
  public void exchange_striker() throws InterruptedException{
 		
-			//System.out.println("Entered update");
 			
 			Thread t2 = new Thread(new Runnable(){
 				public void run(){
@@ -23,7 +22,6 @@ public static int index1,index2;
 			t2.start();
 			t2.join();
 			
-		//System.out.println("T2 Complete");
 		
  if(play_brain1.check_if_strike_change){
 	// System.out.println("Striker changing : ");
@@ -31,8 +29,7 @@ public static int index1,index2;
 			play_brain1.NonStriker = play_brain1.Striker.substring(0, (play_brain1.Striker.length() - play_brain1.NonStriker.length()));
 			play_brain1.Striker = play_brain1.Striker.substring(play_brain1.NonStriker.length());
  		}
-	//System.out.println("Striker : "+play_brain1.Striker);
-	//System.out.println("Non-Striker : "+play_brain1.NonStriker);	
+
 	
 	
 		
