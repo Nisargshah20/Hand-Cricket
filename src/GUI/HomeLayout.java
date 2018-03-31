@@ -1,4 +1,6 @@
-public package GUI;
+package GUI;
+import backend.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.awt.*;
@@ -23,11 +25,10 @@ public HomeLayout(){
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final JFrame Home=new JFrame("Hand Cricket Java");
 	Font fmotto=new Font("Comic Sans MS",Font.BOLD,130);
-	Font fhead=new Font("Algerian",Font.BOLD,250);
+	Font fhead=new Font("Algerian",Font.BOLD,screenSize.width/15);
 	Font fbutton=new Font("Comic Sans MS",Font.BOLD,84);
 	 JLabel Homebase;
 	Color c=new Color(211,211,211);
-	System.out.print(screenSize.width);
 	Home.setSize(screenSize.width, screenSize.height);
 	Home.setVisible(true);
 	Home.setLocation(0,0);
@@ -42,7 +43,8 @@ public HomeLayout(){
 			BufferedImage imag = null;
 			try {
 			    imag = ImageIO.read(new File(back_grnd));
-			} catch (IOException e) {
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 			Image dimg = imag.getScaledInstance(Homebase.getWidth(), Homebase.getHeight(),
 			        Image.SCALE_SMOOTH);
@@ -80,36 +82,41 @@ public HomeLayout(){
 	        single_user.setBackground(UIManager.getColor("control"));
 	    }
 	    public void mouseClicked(java.awt.event.MouseEvent evt) {
-	     	new Single_player();
-	     	Single_player.makeList1();
-	     	Single_player.makeList2();
+	     	new PlayMode();
+	     	PlayMode.makeList1();
+	     	PlayMode.makeList2();
 	     	Home.setVisible(false); 
 	     	Home.dispose();
 	     	
 	    }
 	});
 	
-	//button for stats
-	final JButton stat=new JButton("How to play?");
-	stat.setActionCommand("stat");
-	stat.setBounds((int) (screenSize.width/(2.5)),(int) (screenSize.height/(2.15)),(int) (screenSize.width/3), screenSize.height/10);
-	stat.setBorderPainted(true);
-	stat.setFont(fbutton);
-	stat.setFocusable(true);
-	stat.setFocusable(false);
-	Homebase.add(stat);
-	stat.addMouseListener(new java.awt.event.MouseAdapter() {
+	//button for How to pllay
+	final JButton htp=new JButton("How to play?");
+	htp.setActionCommand("stat");
+	htp.setBounds((int) (screenSize.width/(2.5)),(int) (screenSize.height/(2.15)),(int) (screenSize.width/3), screenSize.height/10);
+	htp.setBorderPainted(true);
+	htp.setFont(fbutton);
+	htp.setFocusable(true);
+	htp.setFocusable(false);
+	Homebase.add(htp);
+	htp.addMouseListener(new java.awt.event.MouseAdapter() {
 	    public void mouseEntered(java.awt.event.MouseEvent evt) {
-	       stat.setBackground(Color.lightGray);
+	    	htp.setBackground(Color.lightGray);
 	    }
 
 	    public void mouseExited(java.awt.event.MouseEvent evt) {
-	        stat.setBackground(UIManager.getColor("control"));
+	    	htp.setBackground(UIManager.getColor("control"));
 	    }
 	    public void mouseClicked(java.awt.event.MouseEvent evt) {
-	    	new Statistic();
-	    	Home.setVisible(false);
-	    	Home.dispose();
+	     	new PlayMode();
+	     	PlayMode.makeList1();
+	     	PlayMode.makeList2();
+	     	Home.setVisible(false); 
+	     	Home.dispose();
+    		final HowToPlay htop= new HowToPlay();
+    		PlayMode.parent.add(htop,"8");
+	    	PlayMode.c1.show(PlayMode.parent, "8");
 	    }
 	});
 	//Button for exit
