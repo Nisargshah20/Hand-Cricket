@@ -1,18 +1,27 @@
 package backend;
 import GUI.*;
-import java.awt.*;
-import java.text.DecimalFormat;
-
 import javax.swing.JLabel;
+/** 
+ * This class handles the Seconds innings of the game
+ */
 public class PlayBrain2 {
+	/** 
+	 * Contains the final score of the team batting Second*/
 	public static int team_score_2;
 	public static int wicket_2;
+	/**
+	 * Increments number of balls in an over
+	 */
 	public static int over_ball_2;
+	/** 
+	 * Increment number of overs*/	
 	public static int over_overs_2;
 	public static int over_totalballs_2=(Integer.parseInt(PlayMode.overs)*6);
 	public static int tempshot2;
 	public static boolean if_second_inning_over=false;
 	public static boolean check_if_strike_change2=false;
+	/**	
+	 * Check for a wicket*/
 	public static boolean check_if_wicket2=false;
 	public static boolean check_if_factor2=false;
 	public static int req=(PlayBrain1.team_score_1)+1;
@@ -22,6 +31,8 @@ public class PlayBrain2 {
 	public static int bat2_score;
 	public static String bat1;
 	public static String bat2;
+	/** 
+	 * Player currently Batting*/
 	public static String Striker;
 	public static String NonStriker;
 	public static int list_pointer=1;
@@ -37,6 +48,15 @@ public class PlayBrain2 {
 	public static JLabel update_comments2;
 	public static JLabel update_strikes2;
 	static Thread t1;
+	/** 
+	 * 
+	 * @param update_score2 Contains reference of JLabel to update score
+	 * @param update_overs2 Contains reference of JLabel to update overs
+	 * @param update_runrate2 Contains reference of JLabel to update runrate
+	 * @param reference2 Contains reference of JLabel to base JLabel
+	 * @param update_comments2 Contains reference of JLabel to update Comments
+	 * @param update_strikes2 Contains reference of JLabel to update Strikes
+	 */
 	public PlayBrain2(JLabel update_score2,JLabel update_overs2,JLabel update_runrate2,JLabel reference2,JLabel update_comments2,JLabel update_strikes2){
 		PlayBrain2.update_overs2=update_overs2;
 		PlayBrain2.update_score2=update_score2;
@@ -48,6 +68,9 @@ public class PlayBrain2 {
 		PlayBrain2.check_if_strike_change2=false;
 		PlayBrain2.update_strikes2=update_strikes2;
 		}
+	/**
+	 * To initialize the striker and non striker
+	 */
 	public static void set_players(){
 		if(TossBrain.compselect.equals("bat")){
 			bat1=PlayBrain1.myteam[0];
@@ -56,7 +79,7 @@ public class PlayBrain2 {
 			NonStriker=bat2;
 			}
 			else{
-				System.out.println("Current batting by comp");
+				
 				bat1=PlayBrain1.oppteam[0];
 				bat2=PlayBrain1.oppteam[1];
 				Striker=bat1;
@@ -65,6 +88,9 @@ public class PlayBrain2 {
 				}
 	}
 	//Method to set if wicket has fallen or strike is changed
+	/**
+	 * To initialize all the check Flags
+	 */
 	public static void set_checks2(){
 		
 		//Check if difficulty
@@ -74,7 +100,7 @@ public class PlayBrain2 {
 				if(PlayArena2.usershot2==PlayArena2.compshot2){
 					
 					check_if_factor2=true;}
-				else if(PlayArena2.usershot2==6 && (/*PlayArena2.compshot2==2 ||*/ PlayArena2.compshot2==3))
+				else if(PlayArena2.usershot2==6 && (PlayArena2.compshot2==2 || PlayArena2.compshot2==3))
 					check_if_factor2=true;
 				else if(PlayArena2.usershot2==4 && (PlayArena2.compshot2==2 ))
 					check_if_factor2=true;
@@ -168,7 +194,9 @@ if(check_if_factor2){
 			}
 
 	}
-
+	/**
+	 * To update the Scoreboard
+	 */
 public static void update_scoreboard2(){
 		//Update score
 	if(check_if_wicket2){
@@ -215,7 +243,9 @@ public static void update_scoreboard2(){
 			update_runrate2.setText("<html>NEED<br>"+req+"<br>OFF<br>"+over_totalballs_2+" <br>BALLS</html>");
 		}
 //Making Comments
-
+/**
+ * To Display comments according to shots or wickets
+ */
 public static void make_comments2(){
 	int commentint=PlayBrain1.ra.nextInt(4);
 

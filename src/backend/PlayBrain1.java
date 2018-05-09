@@ -1,19 +1,30 @@
 package backend;
 import GUI.*;
-import java.awt.*;
 import java.text.DecimalFormat;
 import java.util.Random;
 
 import javax.swing.JLabel;
+/** 
+ * This class handles the first innings of the game
+ */
+
 public class PlayBrain1 {
+/** 
+ * Contains the final score of the team batting first*/
 	public static int team_score_1;
 	public static int wicket_1;
+/**
+ * Increments number of balls in an over*/
 	public static int over_ball_1;
+/** 
+ * Increment number of overs*/	
 	public static int over_overs_1;
 	public static int over_totalballs_1;
 	public static int tempshot;
 	public static boolean if_first_inning_over=false;
 	public static boolean check_if_strike_change=false;
+/**	
+ * Check for a wicket*/
 	public static boolean check_if_wicket=false;
 	public static boolean check_if_factor=false;
 	
@@ -22,6 +33,8 @@ public class PlayBrain1 {
 	public static int bat2_score;
 	public static String bat1;
 	public static String bat2;
+/** 
+ * Player currently Batting*/
 	public static String Striker;
 	public static String NonStriker;
 	public static int list_pointer=1;
@@ -29,8 +42,7 @@ public class PlayBrain1 {
 	public static int player_score__pointer;
 	public static String[] myteam= (String[]) TeamSelection.mysquadsel.toArray(new String[0]);
 	public static String[] oppteam=(String[]) TeamSelection.oppsquadsel.toArray(new String[0]);
-	
-	
+		
 	public static JLabel comments;
 	public static JLabel update_score;
 	public static JLabel update_overs;
@@ -41,6 +53,15 @@ public class PlayBrain1 {
 	static Random ra=new Random();
 	
 	static Thread t1;
+	/** 
+	 * 
+	 * @param update_score Contains reference of JLabel to update score
+	 * @param update_overs Contains reference of JLabel to update overs
+	 * @param update_runrate Contains reference of JLabel to update runrate
+	 * @param reference Contains reference of JLabel to base JLabel
+	 * @param update_comments Contains reference of JLabel to update Comments
+	 * @param update_strikes Contains reference of JLabel to update Strikes
+	 */
 	public PlayBrain1(JLabel update_score,JLabel update_overs,JLabel update_runrate,JLabel reference,JLabel update_comments,JLabel update_strikes){
 		PlayBrain1.update_overs=update_overs;
 		PlayBrain1.update_score=update_score;
@@ -54,6 +75,10 @@ public class PlayBrain1 {
 	//	System.out.println(myteam[0]);
 	//	System.out.println(myteam[3]);
 		}
+	
+	/**
+	 * To initialize the striker and non striker
+	 */
 	public static void set_players(){
 		if(TossBrain.userselect.equals("bat")){
 			bat1=myteam[0];
@@ -73,6 +98,9 @@ public class PlayBrain1 {
 				}
 	}
 	//Method to set if wicket has fallen or strike is changed
+	/**
+	 * To initialize all the check Flags
+	 */
 	public static void set_checks(){
 		
 		//Check if difficulty
@@ -82,7 +110,7 @@ public class PlayBrain1 {
 				if(PlayArena1.usershot==PlayArena1.compshot){
 					
 					check_if_factor=true;}
-				else if(PlayArena1.usershot==6 && (/*PlayArena1.compshot==2 ||*/ PlayArena1.compshot==3))
+				else if(PlayArena1.usershot==6 && (PlayArena1.compshot==2 || PlayArena1.compshot==3))
 					check_if_factor=true;
 				else if(PlayArena1.usershot==4 && (PlayArena1.compshot==2 ))
 					check_if_factor=true;
@@ -174,7 +202,9 @@ public class PlayBrain1 {
 		
 			
 	}
-
+/**
+ * To update the Scoreboard
+ */
 public static void update_scoreboard(){
 		//Update score
 	if(check_if_wicket){
@@ -217,7 +247,9 @@ public static void update_scoreboard(){
 		update_runrate.setText("<html>Run<br>Rate:<br>"+df.format(runrate_1)+"</html>");
 		}
 	//Making Comments
-
+/**
+ * To Display comments according to shots or wickets
+ */
 	public static void make_comments(){
 		int commentint=ra.nextInt(4);
 		 if(check_if_wicket){

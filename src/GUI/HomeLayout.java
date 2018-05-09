@@ -1,6 +1,4 @@
 package GUI;
-import backend.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.awt.*;
@@ -8,25 +6,42 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+/**
+ * This class generates JFrame for Home page.
+ * User can select play,how to play,exit using buttons
 
+ */
 
 public class HomeLayout  {
 
 public static void main(String s[]){
+	/**
+	 * new JFrame is created on main thread.
+	 */
 	SwingUtilities.invokeLater(new Runnable(){
 	public void run(){
 	new HomeLayout();
 	}
 });
 }
+/**
+ * Contains path to icon image
+ */
 public static String icon = "icon_img.png";
+/**
+ * Contains path to background image
+ */
 public static String back_grnd="back_grnd3.jpg";
+/**
+ * Generates a GUI layout for every object call
+ */
 public HomeLayout(){
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	final JFrame Home=new JFrame("Hand Cricket Java");
-	Font fmotto=new Font("Comic Sans MS",Font.BOLD,130);
+	Font fmotto=new Font("Comic Sans MS",Font.BOLD,screenSize.width/29);
 	Font fhead=new Font("Algerian",Font.BOLD,screenSize.width/15);
-	Font fbutton=new Font("Comic Sans MS",Font.BOLD,84);
+	//System.out.println(screenSize);
+	Font fbutton=new Font("Comic Sans MS",Font.BOLD,screenSize.width/46);
 	 JLabel Homebase;
 	Color c=new Color(211,211,211);
 	Home.setSize(screenSize.width, screenSize.height);
@@ -81,6 +96,9 @@ public HomeLayout(){
 	    public void mouseExited(java.awt.event.MouseEvent evt) {
 	        single_user.setBackground(UIManager.getColor("control"));
 	    }
+	    /**
+	     * Overriden event method for play
+	     */
 	    public void mouseClicked(java.awt.event.MouseEvent evt) {
 	     	new PlayMode();
 	     	PlayMode.makeList1();
@@ -108,6 +126,9 @@ public HomeLayout(){
 	    public void mouseExited(java.awt.event.MouseEvent evt) {
 	    	htp.setBackground(UIManager.getColor("control"));
 	    }
+	    /**
+	     * Overriden event method for play
+	     */
 	    public void mouseClicked(java.awt.event.MouseEvent evt) {
 	     	new PlayMode();
 	     	PlayMode.makeList1();
@@ -134,6 +155,9 @@ public HomeLayout(){
 	    public void mouseExited(java.awt.event.MouseEvent evt) {
 	        end.setBackground(UIManager.getColor("control"));
 	    }
+	    /**
+	     * Overriden event method for play
+	     */
 	    public void mouseClicked(java.awt.event.MouseEvent evt) {
 	  
 	    	  int a=JOptionPane.showConfirmDialog(Home,"Are you sure you want to exit?");  

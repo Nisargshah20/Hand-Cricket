@@ -1,12 +1,18 @@
 package backend;
 import GUI.*;
 
+/**
+ * Maintains Strike and update runs of players batting in first innings
+ */
 public class Player {
-	
 public int shotadd;
 public  static String transfer1="0";
 public  static String transfer2="0";
 public static int index1,index2;	
+/**
+ * It will handle the exchange of strike between players
+ * @throws InterruptedException
+ */
  public void exchange_striker() throws InterruptedException{
 		
 			
@@ -35,6 +41,11 @@ public static int index1,index2;
 	
 		
  }
+ 
+ /**
+  * It will update the score of striker
+  * @throws InterruptedException
+  */
  public void update_striker() throws InterruptedException{
 		
 	int strikerscore;

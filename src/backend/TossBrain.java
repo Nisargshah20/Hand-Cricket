@@ -5,19 +5,30 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
-
 import GUI.Toss;
-
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.UIManager;
+
+/**
+ * This class handles the toss event at the backend
+ */
 public class TossBrain {
-	
+	/**
+	 * Shot selected by Computer
+	 */
 	public static String compselect="";
+	/**
+	 * Shot selected by User
+	 */
 	public static String userselect="";
 
+	/**
+	 * Gives result of toss
+	 * @param temp A temporary second reference to base JLabel
+	 */
  public static void toss_handle(JLabel temp){
 	   int total=Toss.compnumber+Toss.usernumber;
 	   

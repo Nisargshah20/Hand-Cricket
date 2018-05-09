@@ -1,21 +1,16 @@
 package GUI;
 import backend.*;
 import java.awt.Color;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
-
+/**
+ * This class creates JPanel for Score card
+ *
+ */
 public class ViewScore1 extends JPanel{
 	public static  JLabel view1_base;
 	public ViewScore1(){
@@ -45,6 +40,9 @@ public class ViewScore1 extends JPanel{
 		    public void mouseExited(java.awt.event.MouseEvent evt) {
 		    	seconstart.setBackground(UIManager.getColor("control"));
 		    }
+		    /**
+		     * To activate new card
+		     */
 		    public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    	
 		    		final PlayArena2 ps2= new PlayArena2();

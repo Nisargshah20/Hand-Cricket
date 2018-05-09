@@ -1,7 +1,6 @@
-public package GUI;
+package GUI;
 import  GUI.HomeLayout;
 import GUI.TeamSelection;
-import backend.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -13,10 +12,21 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
+/**
+ * Generates new Frame for selecting teams and overs.
+ */
 public class PlayMode{
+	/**
+	 * overs string for number of overs 
+	 */
 	public static String overs="";
+	/**
+	 * myteam has user selected team
+	 */
 	public static String myteam="";
+	/**
+	 * oppteam has computer team
+	 */
 	public static String oppteam="";
 	public static String teams_db[]={"India","Australia","SouthAfrica","Pakistan","England","WestIndies","Newzealand","SriLanka"};
 	public static JLabel base;
@@ -31,19 +41,27 @@ public static  ImageIcon imageIcon;
 		}
 	});
 	}
-
-	final static CardLayout c1=new CardLayout();
-	final static JPanel parent = new JPanel();
-	public static Font fvs=new Font("Comic Sans MS",Font.BOLD,150);
-	public static Font fstrike=new Font("Comic Sans MS",Font.BOLD,100);	
-	public static Font fhead=new Font("Georgia",Font.BOLD,105);
-	public static Font fmotto=new Font("Comic Sans MS",Font.BOLD,54);
-	public static Font fbutton=new Font("Comic Sans MS",Font.BOLD,84);
-	public static Font flabel=new Font("Georgia",Font.BOLD,75);
-	public static Font flist=new Font("Comic Sans MS",Font.BOLD,40);
-	public static Font fsmalllabel=new Font("Comic Sans MS",Font.BOLD,60);
-	public static Color clist;
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	/**
+	 * CardLayout refrence to be used on panel
+	 */
+	final static CardLayout c1=new CardLayout();
+	/**
+	 * parent panel on frame which contains card layout
+	 */
+	final static JPanel parent = new JPanel();
+	public static Font fvs=new Font("Comic Sans MS",Font.BOLD,screenSize.width/26);
+	public static Font fstrike=new Font("Comic Sans MS",Font.BOLD,screenSize.width/38);	
+	public static Font fhead=new Font("Georgia",Font.BOLD,screenSize.width/36);
+	public static Font fmotto=new Font("Comic Sans MS",Font.BOLD,screenSize.width/71);
+	public static Font fbutton=new Font("Comic Sans MS",Font.BOLD,screenSize.width/46);
+	public static Font flabel=new Font("Georgia",Font.BOLD,screenSize.width/51);
+	public static Font flist=new Font("Comic Sans MS",Font.BOLD,screenSize.width/26);
+	public static Font fsmalllabel=new Font("Comic Sans MS",Font.BOLD,screenSize.width/64);
+	public static Color clist;
+	/**
+	 * Generates a GUI for teams and over selection
+	 */
 		public PlayMode(){
 			
 		final JFrame Single_playerframe=new JFrame("Hand Cricket Java");
@@ -256,7 +274,9 @@ public static  ImageIcon imageIcon;
 		base.add(opp_team);
 	}
 
-		
+/**
+ * Method to generate first list for selection of user team		
+ */
 		public static void makeList1(){
 			//List For Teams selection
 			final JList my_list_teams;
@@ -285,7 +305,9 @@ public static  ImageIcon imageIcon;
 		}
 			
 			//List2
-		
+		/**
+		 * Method to generate second list for selection of opponent team		
+		 */		
 		public static void makeList2(){
 			final JList opp_list_teams;
 			opp_list_teams=new JList(teams);

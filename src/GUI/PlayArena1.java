@@ -11,15 +11,16 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-
+/**
+ * 
+ * This class generates JPanel for first inning.
+ * JPanel with score board and different buttons for game play.
+ */
 
 public class PlayArena1 extends JPanel{
 	public static int usershot;
@@ -50,12 +51,24 @@ public class PlayArena1 extends JPanel{
 									"<html>Six Runs,<br>hook over fine leg</html>"};
 	public static Font fsc=new Font("Comic Sans MS",Font.BOLD,100);
 	public static  JLabel play_base;
+	/**
+	 * update_score is a second reference of score fro updation.
+	 */
 	public static JLabel update_score;
 	public static JLabel update_runrate;
+	/**
+	 * update_overs is a second reference of overs for updation.
+	 */
 	public static JLabel update_overs;
 	public static JLabel update_comments;
 	public static JLabel update_strikes;
+	/**
+	 * hardshots is an array for computer generated number in hard mode.
+	 */
 	public static int[] hardshots={1,2,3};
+	/**
+	 * playerescores contains score of players with their names.
+	 */
 	public static String[][] playerscores1=new String[4][2];
 	public static String[][] playerscores2=new String[4][2];
 	public static String[] myteam= (String[]) TeamSelection.mysquadsel.toArray(new String[0]);
@@ -83,6 +96,9 @@ public class PlayArena1 extends JPanel{
 			 public void mouseExited(java.awt.event.MouseEvent evt) {
 				 viewscore1.setBackground(UIManager.getColor("control"));
 			    }
+			 /**
+			 * method for activating new card
+			 */
 		    public void mouseClicked(java.awt.event.MouseEvent evt) {
 	    		final ViewScore1 vs= new ViewScore1();
 	    		PlayMode.parent.add(vs,"5");
@@ -175,7 +191,7 @@ public class PlayArena1 extends JPanel{
 				overs.setBounds((int) (PlayMode.screenSize.width/(2.8)), (int) (PlayMode.screenSize.height/(7.5)), PlayMode.screenSize.width/5, PlayMode.screenSize.height/20);
 				overs.setBorder(border);
 				play_base.add(overs);
-				
+				  
 				//runrate1
 				JLabel runrate=new JLabel("<html>Run<br>Rate:<br>0.0</html>",SwingConstants.CENTER);
 				update_runrate=runrate;
@@ -377,6 +393,9 @@ public class PlayArena1 extends JPanel{
 				    public void mouseExited(java.awt.event.MouseEvent evt) {
 				    	four.setBackground(UIManager.getColor("control"));
 				    }
+				    /**
+					 * mouse clicked method for taking user and computer inputs
+					 */
 				    public void mouseClicked(java.awt.event.MouseEvent evt) {
 				    	if(!(PlayBrain1.if_first_inning_over)){
 				    	usershot=Integer.parseInt(four.getActionCommand());
@@ -461,6 +480,9 @@ public class PlayArena1 extends JPanel{
 				});		
 	}
 	@Override
+	/**
+	 * method for drawing images on the child
+	 */
 	public  void paintChildren(Graphics g) {
 		 super.paintChildren(g);
 		  if(!(usershot==0))

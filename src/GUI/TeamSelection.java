@@ -1,4 +1,4 @@
-public package GUI;
+package GUI;
 import backend.*;
 
 import java.awt.Color;
@@ -28,13 +28,23 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
+/**
+ * This class creates JPanel for team selection
+ * JPanel will have buttons for modularity
+ *
+ */
 public class TeamSelection extends JPanel{
 
 	public static String difficulty="";
+	/**
+	 * Collection for generating players list
+	 */
 	static DefaultListModel myplayers=new DefaultListModel();
 	static DefaultListModel oppplayers=new DefaultListModel();
 	public static JLabel base1;
+	/**
+	 * List which gives players selected
+	 */
 	public static List mysquadsel;
 	public static List oppsquadsel;
 	public TeamSelection(){
@@ -80,7 +90,10 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
     public void mouseExited(java.awt.event.MouseEvent evt) {
     	next_su.setBackground(UIManager.getColor("control"));
     }
-    public void mouseClicked(java.awt.event.MouseEvent evt) {
+    /**
+     * Method that shows dialog box
+     */
+    public void mouseClicked(java.awt.event.MouseEvent evt) { 
     	if(difficulty.equals("")){
     		JOptionPane.showMessageDialog(base1, "Please Select Difficulty", "Difficulty",
     		        JOptionPane.WARNING_MESSAGE);
@@ -135,7 +148,7 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
 	    }
 	});
 	//hard
-	hard.setActionCommand("3");
+	hard.setActionCommand("hard");
 	hard.setBounds(0, (int) (PlayMode.screenSize.height/(1.75)), (int) (PlayMode.screenSize.width/(4.5)), (int) (PlayMode.screenSize.height/(15)));
 	hard.setBorderPainted(true);
 	hard.setFont(PlayMode.fbutton);
@@ -148,7 +161,7 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
 	    	hard.setBackground(Color.GREEN);
 	    	easy.setBackground(UIManager.getColor("control"));
 	    }
-	});
+	});  
 	
 	
 	//Teams 
@@ -201,6 +214,9 @@ next_su.addMouseListener(new java.awt.event.MouseAdapter() {
 	
 	
 	//Set Players
+	/**
+	 * Method to give player's of particular team
+	 */
 public static void setsquads(){
 	if(PlayMode.myteam.equals("India")){
 	TeamSelection.mysquad=Ind;
@@ -261,7 +277,9 @@ public static void setsquads(){
 	
 	public static int mysel;
 	public static int oppsel;
-	
+	/**
+	 * Method to generate list of players
+	 */
 	public static void squadList1(){
 		//List For Teams selection
 		final JList my_list_squad;

@@ -10,6 +10,10 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+/**
+ * This class generates JPanel for toss
+ * JPanel will consist of  buttons and labels 
+ */
 public class Toss extends JPanel{
 
 	
@@ -17,13 +21,18 @@ public class Toss extends JPanel{
 	public static String tempo; 
 	public static int usernumber;
 	public static String oe=null;
+	/**
+	 * Array to generate the random numbers
+	 */
 	public static int randnumbers[]={6,3,1,4,2};
 	Random ra=new Random();
 	public static int compnumber;
-	public static Font finp=new Font("Comic Sans MS",Font.BOLD,90);
+	public static Font finp=new Font("Comic Sans MS",Font.BOLD,PlayMode.screenSize.width/42);
 	public static JLayeredPane layeredPane = new JLayeredPane();
 	JLabel temp;
-	
+	/**
+	 * Generates GUI for Toss
+	 */
 	public Toss(){
 				
 		layeredPane.setPreferredSize(new Dimension(PlayMode.screenSize.width, PlayMode.screenSize.height));
@@ -115,7 +124,7 @@ public class Toss extends JPanel{
 		usernum.setFont(PlayMode.flabel);
 		TeamSelection.base1.add(usernum);
 		usernum.setHorizontalAlignment(JTextField.CENTER);
-		
+		  
 		usernum.addKeyListener(new KeyAdapter() {
 		      
 		      	

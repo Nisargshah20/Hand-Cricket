@@ -11,14 +11,16 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-
+/**
+ * This class generates JPanel for second inning
+ * JPanel with score board and different buttons for game play.
+ *
+ */
 public class PlayArena2 extends JPanel{
 	public static int usershot2;
 	public static int compshot2;
@@ -26,8 +28,8 @@ public class PlayArena2 extends JPanel{
 	Random ra =new Random();
 
 	
-	public static Font fsc=new Font("Comic Sans MS",Font.BOLD,100);
-	public static Font fre=new Font("Comic Sans MS",Font.BOLD,50);
+	public static Font fsc=new Font("Comic Sans MS",Font.BOLD,PlayMode.screenSize.width/38);
+	public static Font fre=new Font("Comic Sans MS",Font.BOLD,PlayMode.screenSize.width/77);
 	public static  JLabel play_base2;
 	public static JLabel update_score2;
 	public static JLabel update_runrate2;
@@ -37,6 +39,9 @@ public class PlayArena2 extends JPanel{
 	String temp[] = null;
 	public static  JButton viewscore2;
 	public static JLabel update_comments2;
+	/**
+	 * Generates a GUI for second inning
+	 */
 	public PlayArena2(){
 		//Button for viewscorecard
 		viewscore2=new JButton("View Scorecard>>>");	
