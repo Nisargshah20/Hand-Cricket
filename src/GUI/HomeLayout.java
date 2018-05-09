@@ -50,7 +50,7 @@ public HomeLayout(){
 	Home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	ImageIcon img = new ImageIcon(icon);
 	Home.setIconImage(img.getImage());
-	
+	System.out.println("Nisrag");
 	//Background as Jlabel
 	
 			Homebase = new JLabel();
