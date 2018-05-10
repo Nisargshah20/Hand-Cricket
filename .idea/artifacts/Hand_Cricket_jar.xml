@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Hand_Cricket:jar">
+    <output-path>$PROJECT_DIR$/output/artifacts/Hand_Cricket_jar</output-path>
+    <root id="archive" name="Hand_Cricket.jar">
+      <element id="module-output" name="Hand_Cricket" />
+    </root>
+  </artifact>
+</component>
